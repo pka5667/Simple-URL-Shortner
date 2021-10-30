@@ -3,24 +3,19 @@
 <head>
 <meta charset="utf-8">
 <title>URL Shorter</title>
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+<link rel="stylesheet" href="mystyle.css">
 </head>
 <body>
     <div class="header">Create Short URL</div>
 	<div class="start"><a href="#a">Try it for Free</a></div>
 	<div class="form" id="a">
 	  <div class="form-element">
-        <form action="/" method="post">
-            {% csrf_token %}
-    	    <label for="longurl">Enter your link</label>
-            {% for field in form %}
-            {{field}}
-            {% endfor %}
-            <input id="create-short-url" type="submit" value="Shorten">
-        </form>
-
+	    <label for="longurl">Enter your link</label>
+		<input type="text" id="longurl" placeholder="http://site.com">
 	  </div>
+      <div class="form-element">	  
+         <button id="create-short-url">Shorten</button>
+	  </div>	 
      <div class="result">
 	    <a href="#" id="short-url"></a>
      </div>	
@@ -32,15 +27,15 @@
 		    <tr>
 			   <th>LongURL</th>
 			   <th>ShortURL</th>
+			   <th>Count</th>
 			</tr>
          </thead>
          <tbody>
-            {% for url in data %}
             <tr>
-                <td><a href="{{url.url}}">{{url.url}}</a></td>
-                <td><a href="/u/{{url.slug}}">/u/{{url.slug}}</a><td>
+                <td></td>
+                <td><td>
+				<td></td>
             </tr>
-            {% endfor %}
          </tbody>
 		</thead>
 	</div>	
