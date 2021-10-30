@@ -1,0 +1,9 @@
+<form action="/" method="post">
+{% csrf_token %}
+{{form}}
+<input type="submit" value="Shorten">
+</form>
+
+{% for url in data %}
+<p>Shorten url for <a href="{{url.url}}">{{url.url}}</a> is <a href="/{{url.slug}}">/{{url.slug}}</a></p>
+{% endfor %}
